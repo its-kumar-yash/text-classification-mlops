@@ -1,10 +1,5 @@
 <h1 align="center">TEXT CLASSIFICATION MLOPS</h1>
 
-# Deployment - Demo
-
-https://user-images.githubusercontent.com/101416953/233104686-0c24374e-947b-4d9f-98dd-a371f9ca74af.mp4
-
-
 # Dataset Discription
 
 Consists of 2225 documents from the BBC news website corresponding to stories in five topical areas from 2004-2005.
