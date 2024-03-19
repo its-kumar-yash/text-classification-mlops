@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>news Classification</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-8Ae+I9XZaUkq6U+ykMvLy+ud7VfC4b4KD7VUvtPdyXOOF7N/gnsFLSxVxGZILvCYdVgY8iDt4u6GffUgR0sQ2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+  
+    <div id="wrapper">
+
+        <div class="container" id="home">
+
+          <div class="navbar"> 
+
+            <div class="nav-head">
+                <div class="logo"><a href="#home">News Classification</a></div>
+            </div>
+            
+
+            <div class="social-links">
+              <a class="git" href="https://github.com/Ryzxxl/bbc-news-classification-mlops" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <div class="nav-items">
+                <div><a href="#about-us">About</a></div>
+                <div><a href="#contributors">Contributors</a></div>
+                <a href="#start" class="action">Get Started <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                
+            </div>
+          </div>
+
+          <div class="herosection">
+                <h1>bbc news Classification</h1>
+          
+                <div class="hero-sub-heading">
+                    Classifies news based on <span class="news"></span>
+                </div>
+          </div>
+        </div>
+
+        <div class="predict" id="start">
+          <div class="predict-flex">
+              <form action="/submit" method="post">
+                  <h2>Enter news here:</h2> 
+    
+                  <textarea spellcheck="false" class="container" name="news" id="my-input" placeholder="Enter News..." required></textarea>
+                  <div class="button-group"></div>
+                  <button type="submit" class="action btn-1" id="toggle-btn">Predict</button>
+              </form>
+          </div>
+          <div class="btn-2 container">
+            <form action="/reset" method="post">
+              <button type="submit" onsubmit="" class="action">Reset</button>
+            </form>
+          </div>
+        
+
+          <div class="newsType container" id="result">{{ results }}</div>
+          <div class="predictions container">
+            <div class="table">
+              {{ tables|safe }}
+            </div>
+          <div id="chart" class="predictRes">
+              <script>
+                  const chartSpec = {{ chart|safe }};
+                  const chartContainer = document.getElementById('chart');
+                  vegaEmbed(chartContainer, chartSpec);
+              </script>
+          </div>
+        </div>
+
+      </div>
+
+
+        <div id="about-us">
+            <div class="container">
+              
+                <h2 class="abt-heading">About Us</h2>
+              <div class="abt-data">
+                <p>Welcome to our News Classification project! Our mission is to help users easily classify news articles into one of five categories: politics, sports, entertainment, technology, and business. Our app uses machine learning algorithms to analyze the text of news articles and predict the most appropriate category for the article.</p>
+                <p>Our team consists of a group of passionate developers and machine learning experts who are dedicated to building high-quality software that solves real-world problems. We believe that our News Classification app can help make it easier for people to stay informed about current events by making it easier to find articles on topics that interest them.</p>
+                <p>Our app is designed to be user-friendly and easy to use. Simply enter the text of the news article you want to classify into our app, and it will predict which category the article belongs to. We hope that our app will be useful for journalists, researchers, and anyone else who needs to quickly and accurately classify news articles.</p>
+                <p>Overall, we believe that our News Classification app has the potential to make a positive impact on the way people consume and engage with news content. We are excited to continue developing and improving our app, and we welcome any feedback or suggestions from our users.</p>
+              </div>
+                
+            </div>
+        </div>
+
+
+        <section class="team" id="contributors">
+            <div class="center">
+              <h2>Our Team</h2>
+              <h3>creative nerds</h3>
+            </div>
+
+            <div class="team-content container">
+              <div class="box contributor-card">
+                <img class="effect" src="https://cdn.discordapp.com/attachments/1076896182191788042/1097902175864246312/03-removebg-preview_2-fotor-bg-remover-2023041820413.png">
+                <p></p>
+                <h3>Rakshit Khajuria</h3>
+                <h5>ML Engineer</h5>
+                <div class="icons">
+                  <a href="https://www.linkedin.com/in/rakshit-khajuria/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://github.com/Ryzxxl" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://instagram.com/rakshit_khajuriaa?igshid=ZDdkNTZiNTM=" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+              </div>
+
+              <div class="box contributor-card">
+                <img class="effect" src="https://cdn.discordapp.com/attachments/1076896182191788042/1097903018680262656/01-removebg-preview-fotor-bg-remover-20230418204426.png">
+                <h3>Prikshit Sharma</h3>
+                <h5>ML Engineer</h5>
+                <div class="icons">
+                  <a href="https://www.linkedin.com/in/prikshit7766/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://github.com/Prikshit7766" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.instagram.com/prikshit7766/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+              </div>
+
+              <div class="box contributor-card">
+                <img class="effect" src="https://cdn.discordapp.com/attachments/1076896182191788042/1097901403348942898/Pngtreebusiness_man_avatar_8855195-fotor-bg-remover-20230418203759.png">
+                <h3>Shivansh Gupta</h3>
+                <h5>Web Developer</h5>
+                <div class="icons">
+                  <a href="https://www.linkedin.com/in/shivansh-gupta-6352821bb/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://github.com/Shivansh270" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://instagram.com/guptashivansh?igshid=YmMyMTA2M2Y="><i class="fa-brands fa-instagram" target="_blank"></i></a>
+                </div>
+              </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+      const input = document.getElementById('my-input');
+      input.addEventListener('blur', function() {
+        const value = input.value.trim();
+        const words = value.split(/\s+/).length;
+        if (words < 8) {
+          alert('Please enter at least 8 words.');
+        }
+      });
+    </script>
+  
+  <script>
+    const myButton = document.getElementsByClassName("newsType");
+    const myText = document.getElementsByClassName("spanClass");
+
+    myButton.addEventListener("click", function() {
+    myText.style.display = "block";
+  });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+  <script>
+    var typeData = new Typed(".news", {
+    strings: [
+    "Sports",
+    "Politics",
+    "Entertainment",
+    "Business",
+    "Tech"
+  ],
+    loop: true,
+    typeSpeed: 100,
+    backSpeed: 80,
+    backDelay: 1000,
+  });
+  </script>
+  <script>
+  const textarea = document.querySelector("textarea");
+  textarea.addEventListener("keyup", e =>{
+    textarea.style.height = "63px";
+    let scHeight = e.target.scrollHeight;
+    textarea.style.height = `${scHeight}px`;
+  });
+  </script>
+</body>
+</html>
