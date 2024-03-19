@@ -1,5 +1,10 @@
 <h1 align="center">TEXT CLASSIFICATION MLOPS</h1>
 
+# Demo Video
+
+https://github.com/its-kumar-yash/text-classification-mlops/assets/97521394/718ce02b-e8a9-4db4-bd54-36718b8bbb1d
+
+
 # Dataset Discription
 
 Consists of 2225 documents from the BBC news website corresponding to stories in five topical areas from 2004-2005.
